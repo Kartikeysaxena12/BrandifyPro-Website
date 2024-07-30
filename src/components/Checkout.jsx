@@ -3,7 +3,7 @@ import React from "react";
 
 const Checkout = () => {
   return (
-    <div className="container bg-gradient-to-r from-blue-200 via-blue-900 to-blue-200 mx-auto my-8 p-8 shadow-xl rounded-lg">
+    <div className="container bg-gradient-to-r from-blue-200 via-blue-200 to-blue-500 mx-auto my-8 p-8 shadow-xl rounded-lg">
       <h2 className="text-3xl font-bold text-gray-800 mb-6">Checkout</h2>
       <form className="space-y-6">
         <div>
