@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 p-4 text-white mt-8">
+    <footer className="bg-gray-800 p-4 text-white mt-auto">
       <div className="flex justify-between items-center">
         <p>© 2024 BrandifyPro</p>
         <div>

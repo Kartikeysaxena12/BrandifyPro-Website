@@ -35,7 +35,7 @@ const products = [
 const Carousel = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const navigate = useNavigate();
-  const itemsPerPage = 1; // Show one item per page
+  const itemsPerPage = 1;
 
   const totalPages = Math.ceil(products.length / itemsPerPage);
 
@@ -55,19 +55,19 @@ const Carousel = () => {
   );
 
   return (
-    <div className="container mx-auto my-8 p-6 bg-gradient-to-r from-blue-200 via-blue-900 to-blue-200 shadow-xl rounded-lg overflow-hidden">
-      <div className="flex flex-col md:flex-row items-center">
+    <div className="container mx-auto my-8 p-6 bg-gradient-to-r from-blue-200 via-blue-200 to-blue-500 shadow-xl rounded-lg overflow-hidden">
+      <div className="flex flex-col items-center">
         {currentProducts.map((product) => (
           <div
             key={product.id}
-            className="flex flex-col md:flex-row items-center mb-8 p-4 bg-white shadow-lg rounded-lg w-full md:w-3/4 mx-auto"
+            className="flex flex-col md:flex-row items-center mb-8 p-4 bg-white shadow-lg rounded-lg w-full"
           >
             <img
               src={product.image}
               alt={product.name}
               className="w-full md:w-1/2 h-64 md:h-80 object-cover rounded-lg border-4 border-blue-500"
             />
-            <div className="mt-4 md:mt-0 md:ml-8">
+            <div className="mt-4 md:mt-0 md:ml-8 text-center md:text-left">
               <h2 className="text-3xl font-bold text-gray-800 mb-2">
                 {product.name}
               </h2>

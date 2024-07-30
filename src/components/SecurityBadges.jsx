@@ -29,8 +29,8 @@ const badges = [
 
 const SecurityBadges = () => {
   return (
-    <section className="my-20 p-4 bg-gradient-to-r from-blue-200 via-blue-900 to-blue-200 shadow-lg rounded-lg flex-grow">
-      <h2 className="text-2xl text-blue-100 font-bold mb-8 text-center">
+    <section className="my-20 p-4 bg-gradient-to-r from-blue-200 via-blue-200 to-blue-500 shadow-lg rounded-lg flex-grow">
+      <h2 className="text-2xl text-blue-900 font-bold mb-8 text-center">
         Our Security
       </h2>
       <div className="flex flex-wrap justify-around">

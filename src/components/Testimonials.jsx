@@ -17,13 +17,13 @@ const Testimonials = () => {
     prevArrow: <SamplePrevArrow />,
     appendDots: (dots) => (
       <div className="pt-10">
-        <ul className="flex justify-center space-x-2 ">{dots}</ul>
+        <ul className="flex justify-center space-x-2">{dots}</ul>
       </div>
     ),
     customPaging: (i) => (
       <button
         type="button"
-        className="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-500 focus:outline-none"
+        className="w-3 h-3 rounded-full bg-gray-300 hover:bg-zinc-200 focus:outline-none"
       ></button>
     ),
   };
@@ -52,22 +52,24 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="my-8 p-4 bg-gradient-to-r from-blue-200 via-blue-900 to-blue-200 shadow-lg rounded-lg h-48">
+    <section className="my-8 py-8 p-4 bg-gradient-to-r from-blue-200 via-blue-200 to-blue-500 shadow-lg rounded-lg">
       <h2 className="text-2xl text-blue-900 font-bold mb-4">
         Customer Testimonials
       </h2>
-      <Slider {...settings}>
-        {testimonials.map((testimonial, index) => (
-          <div key={index} className="bg-white p-4 rounded-lg shadow">
-            <p className="text-gray-700 font-semibold pl-10 text-[20px]">
-              "{testimonial.text}"
-            </p>
-            <p className="text-gray-500 font-semibold pl-10 mt-2">
-              - {testimonial.author}
-            </p>
-          </div>
-        ))}
-      </Slider>
+      <div className="relative">
+        <Slider {...settings}>
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="bg-white p-4 rounded-lg shadow">
+              <p className="text-gray-700 ml-10 font-semibold text-[20px]">
+                "{testimonial.text}"
+              </p>
+              <p className="text-gray-500 ml-10 font-semibold mt-2">
+                - {testimonial.author}
+              </p>
+            </div>
+          ))}
+        </Slider>
+      </div>
     </section>
   );
 };
