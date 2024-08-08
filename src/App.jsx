@@ -8,6 +8,7 @@ import Checkout from "./components/Checkout";
 import Footer from "./components/Footer";
 import SecurityBadges from "./components/SecurityBadges";
 import ReturnPolicy from "./components/ReturnPolicy";
+import FeaturedServices from "./components/FeaturedServices"; // Import FeaturedServices component
 import "./App.css";
 
 const App = () => {
@@ -23,6 +24,9 @@ const App = () => {
                 <>
                   <section id="product">
                     <Product />
+                  </section>
+                  <section id="featured-services">
+                    <FeaturedServices /> {/* Add FeaturedServices component */}
                   </section>
                   <Element name="testimonials">
                     <section id="testimonials">

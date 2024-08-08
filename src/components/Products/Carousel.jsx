@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import brand from "../../assets/branding.jpg";
 import bran from "../../assets/brandtwo.jpg";
@@ -39,11 +39,13 @@ const Carousel = () => {
 
   const totalPages = Math.ceil(products.length / itemsPerPage);
 
-  const handlePageChange = (page) => {
-    if (page >= 0 && page < totalPages) {
-      setCurrentPage(page);
-    }
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPage((prevPage) => (prevPage + 1) % totalPages);
+    }, 5000); // Transition every 5 seconds
+
+    return () => clearInterval(interval); // Clean up the interval on unmount
+  }, [totalPages]);
 
   const handleBuyNow = () => {
     navigate("/checkout");
@@ -60,12 +62,12 @@ const Carousel = () => {
         {currentProducts.map((product) => (
           <div
             key={product.id}
-            className="flex flex-col md:flex-row items-center mb-8 p-4 bg-white shadow-lg rounded-lg w-full"
+            className="flex flex-col md:flex-row items-center mb-8 pt-12 p-4 rounded-lg w-full"
           >
             <img
               src={product.image}
               alt={product.name}
-              className="w-full md:w-1/2 h-64 md:h-80 object-cover rounded-lg border-4 border-blue-500"
+              className="w-full md:w-1/2 h-64 md:h-80 object-cover rounded-lg  "
             />
             <div className="mt-4 md:mt-0 md:ml-8 text-center md:text-left">
               <h2 className="text-3xl font-bold text-gray-800 mb-2">
@@ -76,29 +78,13 @@ const Carousel = () => {
               </p>
               <button
                 onClick={handleBuyNow}
-                className="bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-400 transition duration-300"
+                className="bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 hover:text-blue-900 hover:font-bold transition duration-300"
               >
                 Buy Now
               </button>
             </div>
           </div>
         ))}
-      </div>
-      <div className="flex justify-center items-center mt-6">
-        <button
-          onClick={() =>
-            handlePageChange((currentPage - 1 + totalPages) % totalPages)
-          }
-          className="bg-blue-900 text-white px-4 font-semibold py-2 rounded-lg hover:bg-blue-700 transition duration-300 mr-4"
-        >
-          Previous
-        </button>
-        <button
-          onClick={() => handlePageChange((currentPage + 1) % totalPages)}
-          className="bg-blue-300 text-black px-6 font-semibold py-2 rounded-lg hover:bg-blue-700 transition duration-300"
-        >
-          Next
-        </button>
       </div>
     </div>
   );
